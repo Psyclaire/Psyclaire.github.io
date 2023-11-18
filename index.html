@@ -4,6 +4,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>photosfrommyeyeballs</title>
   <style>
+    body {
+      margin: 0;
+      overflow: hidden; /* Hide overflow to keep ball within viewport */
+      background-color: #f0f0f0;
+    }
+
+    #ball {
+      width: 30px;
+      height: 30px;
+      background-color: #0f0;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the ball */
+      pointer-events: none; /* Allows interaction with elements beneath the ball */
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="ball"></div>
     /* CSS to add space between images */
     .image-gap {
       margin-bottom: 20px; /* Add a bottom margin of 20px */
@@ -28,6 +50,33 @@
 </head>
 <body>
 
+<script>
+    // JavaScript for ball animation
+    const ball = document.getElementById('ball');
+    let x = window.innerWidth / 2; // Initial x position
+    let y = window.innerHeight / 2; // Initial y position
+    let vx = 2; // Initial x velocity
+    let vy = 3; // Initial y velocity
+
+    function animateBall() {
+      x += vx;
+      y += vy;
+
+      // Reverse velocity if ball hits the viewport edges
+      if (x + ball.offsetWidth >= window.innerWidth || x <= 0) {
+        vx = -vx;
+      }
+      if (y + ball.offsetHeight >= window.innerHeight || y <= 0) {
+        vy = -vy;
+      }
+
+      ball.style.transform = `translate(${x}px, ${y}px)`;
+      requestAnimationFrame(animateBall);
+    }
+
+    animateBall();
+  </script>
+  
 <html>
 
 <body>
