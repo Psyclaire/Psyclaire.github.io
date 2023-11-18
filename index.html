@@ -4,14 +4,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>photosfrommyeyeballs</title>
   <style>
-     /* CSS for rainbow-colored text */
+/* CSS for rainbow-colored text */
     .rainbow-text {
-      font-size: 24px;
-      background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #8000ff, #ff00ff);
+      font-size: 36px;
+      background-image: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #8000ff, #ff00ff);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: rainbow-animation 8s linear infinite;
       display: inline;
     }
+
+    /* Keyframes for animation */
+    @keyframes rainbow-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
     /* CSS to add space between images */
     .image-gap {
       margin-bottom: 20px; /* Add a bottom margin of 20px */
@@ -59,6 +69,9 @@
     </style>
   <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
   <img src="https://i.imgur.com/ztr4bVN.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
+  <img src="https://i.imgur.com/GITF6dI.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
+  <img src="https://i.imgur.com/hoKBNFN.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
+  <img src="https://i.imgur.com/YIiaXiu.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
 </body>
 
 </body>
