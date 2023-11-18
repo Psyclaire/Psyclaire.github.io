@@ -4,6 +4,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>photosfrommyeyeballs</title>
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .raindrop {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: #00f;
+      filter: blur(2px); /* Adding blur effect to create a pixelated appearance */
+      animation: fall 2s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
     /* CSS to add space between images */
     .image-gap {
       margin-bottom: 20px; /* Add a bottom margin of 20px */
