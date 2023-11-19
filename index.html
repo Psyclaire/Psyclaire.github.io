@@ -3,59 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>photosfrommyeyeballs</title>
+  <title>Eyeball Text</title>
   <style>
-    /* CSS to add space between images */
-    .image-gap {
-      margin-bottom: 20px; /* Add a bottom margin of 20px */
-    }
-    
-    /* Default styles for larger screens */
     body {
-      background-color: black;
-      color: #FF8200; /* Original text color restored */
-      padding: 40px;
+      margin: 0;
+      padding: 0;
+      background-color: black; /* Change the background color as needed */
     }
-    
-    img {
-      width: 70%; /* Set the image width to 50% of its parent element */
-      height: auto; /* Maintain the aspect ratio */
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 20px; /* Adjust spacing as needed */
+      box-sizing: border-box;
     }
-    
-    /* Media query for smaller screens (e.g., mobile phones) */
-    @media (max-width: 768px) {
-      body {
-        padding: 15px;
-      }
-    }
-    
-    /* Additional styles for specific elements */
-    h1 {
-      font-size: 155px; /* Adjust the font size here */
-    }
-    
-    p {
-      font-size: 50px; /* Adjust the font size here */
-    }
-    
-    .bottom-text p {
-      font-size: 18px; /* Adjust the font size here */
+
+    .eyeball-text {
+      font-size: 8vw; /* Adjust the font size as needed */
+      line-height: 1; /* Ensures text takes up exactly two lines */
+      color: #FF8200; /* Eyeball color */
+      text-align: left;
+      white-space: nowrap; /* Prevents text from wrapping */
     }
   </style>
 </head>
 <body>
-
-  <h1><b>pictures from my eyeballs</b></h1>
-  <p> e. 2023</p>
-  <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/ztr4bVN.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/GITF6dI.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/hoKBNFN.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/YIiaXiu.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-
-  <div class="bottom-text">
-    <p>thank you for being here</p>
+  <div class="container">
+    <div class="eyeball-text">
+      Photos from my eyeballs
+    </div>
   </div>
-
 </body>
 </html>
