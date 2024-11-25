@@ -14,19 +14,28 @@
         header {
             padding: 20px;
             text-align: left;
+            position: relative;
         }
 
         header h1 {
             color: #FF8200;
             font-size: 4em;
             margin: 0;
-            margin: 0;
+            position: relative;
+            display: inline-block;
         }
 
         header p {
             color: #FF8200;
             font-size: 0.9em;
             margin: 5px 0 0;
+        }
+
+        header img {
+            display: block;
+            margin-top: 10px;
+            width: 4em; /* Approximately the length of the text */
+            height: 4em;
         }
 
         hr {
@@ -56,12 +65,49 @@
                 transform: scale(1.1);
             }
         }
+
+        /* Hidden Gravity Feature */
+        @keyframes fall {
+            to {
+                transform: translateY(100px);
+            }
+        }
+
+        header h1 span {
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+
+        header.holding h1 span {
+            animation: fall 0.5s forwards;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            const text = header.querySelector('h1');
+
+            // Wrap each letter in a span
+            text.innerHTML = text.textContent
+                .split('')
+                .map(letter => `<span>${letter}</span>`) // Wrap each letter
+                .join('');
+
+            header.addEventListener('mousedown', () => {
+                header.classList.add('holding');
+            });
+
+            header.addEventListener('mouseup', () => {
+                header.classList.remove('holding');
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
         <h1>photos from my eyeballs</h1>
         <p>e. 2023</p>
+        <img src="placeholder.jpg" alt="Small header image">
         <hr>
     </header>
 
