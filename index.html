@@ -3,49 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery</title>
+    <title>Photos from My Eyeballs</title>
     <style>
+        /* Body and global styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: Verdana, Geneva, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #000; /* Dark background for dark mode */
+            color: #0f0; /* Neon green text for retro vibe */
         }
 
+        /* Header styling */
         header {
-            text-align: center;
-            padding: 20px;
-            background-color: #fff;
-            border-bottom: 2px solid #ddd;
+            background-color: #333;
+            padding: 15px;
+            border-bottom: 3px solid #444;
         }
 
         header h1 {
             color: #FF8200;
             font-size: 2em;
             margin: 0;
+            text-shadow: 1px 1px 5px #fff;
         }
 
+        /* Sidebar and content container styles */
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+
+        .sidebar {
+            background-color: #222;
+            padding: 15px;
+            width: 200px;
+            color: #fff;
+            border-right: 3px solid #444;
+        }
+
+        .sidebar a {
+            color: #0f0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 15px;
+        }
+
+        /* Gallery styles */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
         }
 
         .gallery img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid #444;
+            background-color: #111;
+            box-shadow: 2px 2px 5px #000;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .gallery img:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            border-color: #FF8200;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-top: 3px solid #444;
         }
     </style>
 </head>
@@ -53,14 +93,28 @@
     <header>
         <h1>Photos from My Eyeballs</h1>
     </header>
-    <section class="gallery">
-        <!-- Replace these image links with your own -->
-        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 1">
-        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 2">
-        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 3">
-        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 4">
-        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 5">
-        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 6">
-    </section>
+    <div class="container">
+        <nav class="sidebar">
+            <h3>Navigation</h3>
+            <a href="#home">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </nav>
+        <main class="content">
+            <section id="gallery" class="gallery">
+                <!-- Replace these image links with your own -->
+                <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 1">
+                <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 2">
+                <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 3">
+                <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 4">
+                <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 5">
+                <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 6">
+            </section>
+        </main>
+    </div>
+    <footer>
+        &copy; 2024 My Eyeballs. All rights reserved.
+    </footer>
 </body>
 </html>
