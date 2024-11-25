@@ -7,6 +7,7 @@
     <style>
         body {
             margin: 0;
+            font-family: Arial, sans-serif;
             background-color: #121212;
             color: #FFFFFF;
         }
@@ -29,15 +30,14 @@
         }
 
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             padding: 20px;
-            justify-content: center;
         }
 
         .gallery img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             transition: transform 0.3s ease;
             border: 2px solid #FF8200;
@@ -46,13 +46,6 @@
 
         .gallery img:hover {
             transform: scale(1.2);
-        }
-
-        @media (max-width: 768px) {
-            .gallery {
-                flex-direction: column;
-                align-items: center;
-            }
         }
     </style>
 </head>
@@ -63,11 +56,11 @@
     </header>
 
     <section class="gallery">
-        <img src="image1.jpg" alt="Image 1">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image4.jpg" alt="Image 4">
-        <img src="image5.jpg" alt="Image 5">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 1">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 2">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 3">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 4">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 5">
     </section>
 </body>
 </html>
