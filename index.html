@@ -1,80 +1,66 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>photosfrommyeyeballs</title>
-  <style>
-     /* CSS to add space between images */
-    .image-gap {
-      margin-bottom: 20px; /* Add a bottom margin of 20px */
-    }
-    /* Default styles for larger screens */
-    body {
-      background-color: black;
-      color: white;
-      padding: 40px;
-    }
-    img {
-      width: 70%; /* Set the image width to 50% of its parent element */
-      height: auto; /* Maintain the aspect ratio */
-    }
-    /* Media query for smaller screens (e.g., mobile phones) */
-    @media (max-width: 768px) {
-      body {
-        padding: 15px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 2px solid #ddd;
+        }
+
+        header h1 {
+            color: #FF8200;
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
-
-<html>
-
-<body>
-   <style>
-    body {
-      background-color: black;
-      color: #FF8200;
-    }
-  </style>
-  <h1><b> photos from my eyeballs</b></h1>
-    <style>
-       h1 {
-      font-size: 54px; /* Adjust the font size here */
-    }
-    </style>
-  <p> e. 2023</p>
-   <style>
-       p {
-      font-size: 24px; /* Adjust the font size here */
-    }
-    </style>
-  <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/ztr4bVN.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/GITF6dI.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/7kfY9Lm.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/NIQIJE5.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/1NaKomt.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/hoKBNFN.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/YIiaXiu.jpeg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/HPcQfsz.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/5GnhDrB.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/V27Z0gV.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/auJhSwS.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-  <img src="https://i.imgur.com/mgSp6u2.jpg" alt="Scaled Image" width="300" height="200" class="image-gap"/>
-
-</body>
-
-   <div class="bottom-text">
-    <p>thank you for being here</p>
-     <style>
-       p {
-      font-size: 18px; /* Adjust the font size here */
-    }
-  </div>
-  
+    <header>
+        <h1>Photos from My Eyeballs</h1>
+    </header>
+    <section class="gallery">
+        <!-- Replace these image links with your own -->
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 1">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 2">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 3">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 4">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 5">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Sample Image 6">
+    </section>
 </body>
 </html>
-
-
