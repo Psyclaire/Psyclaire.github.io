@@ -5,163 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photos from My Eyeballs</title>
     <style>
-        /* Global styles */
         body {
-            font-family: "Comic Sans MS", sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #ffffcc; /* Light yellow background */
-            color: #000;
-            background-image: url('https://i.imgur.com/8xlSkh3.png'); /* 90s tiling pattern */
-            background-repeat: repeat;
+            background-color: #121212;
+            color: #FFFFFF;
         }
 
-        /* Header styling */
         header {
-            background-color: #ff9900; /* Vibrant orange */
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            border-bottom: 3px solid #000;
+            padding: 20px;
+            text-align: left;
         }
 
         header h1 {
-            font-size: 2.5em;
+            color: #FF8200;
+            font-size: 2em;
             margin: 0;
-            text-shadow: 2px 2px #000;
         }
 
-        header .welcome-gif {
-            display: block;
-            margin: 10px auto;
-            width: 100px;
+        header p {
+            color: #FF8200;
+            font-size: 0.9em;
+            margin: 5px 0 0;
         }
 
-        /* Sidebar and content layout */
-        .container {
-            display: flex;
-            margin: 10px;
-        }
-
-        .sidebar {
-            background-color: #ffcc66; /* Pale orange */
-            padding: 10px;
-            width: 200px;
-            border-right: 3px solid #000;
-        }
-
-        .sidebar h3 {
-            text-align: center;
-            background-color: #ff6600; /* Bold orange for headers */
-            padding: 5px;
-            color: #fff;
-            border: 2px solid #000;
-        }
-
-        .sidebar a {
-            color: #0000ff; /* Classic blue links */
-            text-decoration: none;
-            font-weight: bold;
-            display: block;
-            margin: 10px 0;
-        }
-
-        .sidebar a:hover {
-            text-decoration: underline;
-        }
-
-        .content {
-            flex-grow: 1;
-            padding: 15px;
-            background-color: #fff; /* White content area */
-            border: 3px solid #000; /* Classic border */
-            border-radius: 5px;
-        }
-
-        /* Gallery styles */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 10px;
+            padding: 20px;
+            justify-content: center;
         }
 
         .gallery img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
-            border: 5px solid #ff6600; /* Bold borders */
-            background-color: #fff;
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
+            border: 2px solid #FF8200;
+            cursor: pointer;
         }
 
         .gallery img:hover {
-            transform: rotate(-5deg);
+            transform: scale(1.2);
         }
 
-        /* Footer styling */
-        footer {
-            background-color: #ff9900;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            border-top: 3px solid #000;
-        }
-
-        /* Moving decorations */
-        .dancing-icons {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .dancing-icons img {
-            margin: 0 5px;
-            width: 50px;
-        }
-
-        .marquee {
-            font-size: 1.2em;
-            color: #000;
-            background-color: #ffcc66;
-            padding: 10px;
-            text-align: center;
-            border: 3px solid #000;
-            margin-bottom: 20px;
+        @media (max-width: 768px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Photos from My Eyeballs</h1>
-        <img src="https://i.imgur.com/f1vJG8S.gif" alt="Welcome" class="welcome-gif">
+        <p>e. 2023</p>
     </header>
-    <div class="marquee">Welcome to my amazing photo gallery! Enjoy the vibes of the internet’s golden age! 🌟</div>
-    <div class="container">
-        <nav class="sidebar">
-            <h3>Navigation</h3>
-            <a href="#home">Home</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#guestbook">Sign My Guestbook!</a>
-            <a href="#about">About Me</a>
-        </nav>
-        <main class="content">
-            <section id="gallery" class="gallery">
-                <!-- Replace these image links with your own -->
-                <img src="https://via.placeholder.com/300x200" alt="Sample Image 1">
-                <img src="https://via.placeholder.com/300x200" alt="Sample Image 2">
-                <img src="https://via.placeholder.com/300x200" alt="Sample Image 3">
-                <img src="https://via.placeholder.com/300x200" alt="Sample Image 4">
-                <img src="https://via.placeholder.com/300x200" alt="Sample Image 5">
-                <img src="https://via.placeholder.com/300x200" alt="Sample Image 6">
-            </section>
-            <div class="dancing-icons">
-                <img src="https://i.imgur.com/Ns0NpGZ.gif" alt="Dancing Icon 1">
-                <img src="https://i.imgur.com/Ns0NpGZ.gif" alt="Dancing Icon 2">
-                <img src="https://i.imgur.com/Ns0NpGZ.gif" alt="Dancing Icon 3">
-            </div>
-        </main>
-    </div>
-    <footer>
-        <p>&copy; 1997-2024 My Eyeballs. Best viewed on Internet Explorer 4.0 or Netscape Navigator.</p>
-    </footer>
+
+    <section class="gallery">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
+        <img src="image5.jpg" alt="Image 5">
+    </section>
 </body>
 </html>
