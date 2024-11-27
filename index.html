@@ -77,6 +77,16 @@
         body.no-scroll {
             overflow: hidden;
         }
+    
+        /* Fade-in animation */
+        body.fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -113,6 +123,11 @@
     <footer style="text-align: left; padding: 20px; color: #FF8200;">thank you for being here</footer>
 
     <script>
+        // Add fade-in effect on page load
+        document.body.classList.add('fade-in');
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
         const modal = document.getElementById('modal');
         const modalImage = document.getElementById('modal-image');
         const galleryImages = document.querySelectorAll('.gallery img');
