@@ -142,9 +142,10 @@
         document.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'visible') {
                 requestAnimationFrame(() => {
-                    // Minimal DOM update
-                    modal.style.display = modal.style.display; // Reapply current styles
+                    // Minimal DOM update to ensure smooth reactivity
+                    modal.style.display = modal.style.display;
                 });
+                document.body.classList.remove('no-scroll');
             }
         });
     </script>
