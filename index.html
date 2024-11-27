@@ -101,6 +101,7 @@
         <img src="https://i.imgur.com/auJhSwS.jpg" alt="Image 12">
         <img src="https://i.imgur.com/mgSp6u2.jpg" alt="Image 13">
         <img src="https://i.ibb.co/rs12w4V/85831-D92-C63-C-4469-A576-7-D1-B23-B08956.jpg" alt="Image 14">
+        <img src="https://i.ibb.co/BNJ2XDn/60-D34-B98-5-A0-A-428-D-A823-E648-F8-C8933-E.jpg" alt="Image 15">
     </section>
 
     <div class="modal" id="modal">
@@ -131,6 +132,14 @@
         modal.addEventListener('touchmove', (e) => {
             e.preventDefault();
         }, { passive: false });
+
+        // Optimize responsiveness on tab switch
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                // Force reflow to stabilize layout
+                document.body.offsetHeight; // Triggers a reflow without doing anything
+            }
+        });
     </script>
 </body>
 </html>
