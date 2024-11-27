@@ -40,7 +40,6 @@
             justify-content: center;
             gap: 10px;
             padding: 20px;
-            position: relative;
         }
 
         .gallery img {
@@ -67,7 +66,6 @@
             background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
-            overscroll-behavior: contain;
         }
 
         .modal img {
@@ -77,13 +75,8 @@
 
         body.no-scroll {
             overflow: hidden;
-            position: fixed;
-            width: 100%;
         }
     </style>
-    <!-- Preload critical images -->
-    <link rel="preload" href="https://i.imgur.com/TsvgtoW.jpg" as="image">
-    <link rel="preload" href="https://i.imgur.com/ztr4bVN.jpg" as="image">
 </head>
 <body>
     <header>
@@ -131,22 +124,6 @@
         modal.addEventListener('click', () => {
             modal.style.display = 'none';
             document.body.classList.remove('no-scroll');
-        });
-
-        // Prevent touchmove when modal is active
-        modal.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-        }, { passive: false });
-
-        // Optimize responsiveness on tab switch
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                requestAnimationFrame(() => {
-                    // Minimal DOM update to ensure smooth reactivity
-                    modal.style.display = modal.style.display;
-                });
-                document.body.classList.remove('no-scroll');
-            }
         });
     </script>
 </body>
