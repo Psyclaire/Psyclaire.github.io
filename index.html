@@ -47,8 +47,6 @@
             height: auto;
             transition: transform 0.3s ease;
             cursor: pointer;
-            object-fit: contain;
-            display: block;
         }
 
         @media (hover: hover) {
@@ -77,6 +75,17 @@
 
         body.no-scroll {
             overflow: hidden;
+        }
+
+        /* Prevent layout shifts */
+        .gallery img {
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Fix for maintaining gallery layout when modal is active */
+        .gallery {
+            position: relative;
         }
     </style>
 </head>
