@@ -76,6 +76,12 @@
         body.no-scroll {
             overflow: hidden;
         }
+
+        /* Prevent layout shifts */
+        .gallery img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
