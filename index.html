@@ -9,6 +9,9 @@
             margin: 0;
             background-color: #121212;
             color: #FFFFFF;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            overflow: hidden;
         }
 
         header {
@@ -77,16 +80,6 @@
         body.no-scroll {
             overflow: hidden;
         }
-    
-        /* Fade-in animation */
-        body.fade-in {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        body.loaded {
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
@@ -123,11 +116,6 @@
     <footer style="text-align: left; padding: 20px; color: #FF8200;">thank you for being here</footer>
 
     <script>
-        // Add fade-in effect on page load
-        document.body.classList.add('fade-in');
-        window.addEventListener('load', () => {
-            document.body.classList.add('loaded');
-        });
         const modal = document.getElementById('modal');
         const modalImage = document.getElementById('modal-image');
         const galleryImages = document.querySelectorAll('.gallery img');
@@ -149,6 +137,12 @@
         modal.addEventListener('touchmove', (e) => {
             e.preventDefault();
         }, { passive: false });
+
+        // Fade in content after load
+        window.addEventListener('load', () => {
+            document.body.style.overflow = 'auto';
+            document.body.style.opacity = '1';
+        });
     </script>
 </body>
 </html>
