@@ -9,8 +9,6 @@
             margin: 0;
             background-color: #121212;
             color: #FFFFFF;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
             overflow: hidden;
         }
 
@@ -23,6 +21,11 @@
             color: #FF8200;
             font-size: 4em;
             margin: 0;
+            opacity: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #FF8200;
+            display: inline-block;
         }
 
         header p {
@@ -38,7 +41,7 @@
         }
 
         .gallery {
-            display: grid;
+            display: none;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             justify-content: center;
             gap: 10px;
@@ -80,16 +83,38 @@
         body.no-scroll {
             overflow: hidden;
         }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        header h1 {
+            animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>photos from my eyeballs</h1>
+        <h1 id="header-title">photos from my eyeballs</h1>
         <p>e. 2023</p>
         <hr>
     </header>
 
-    <section class="gallery">
+    <section class="gallery" id="gallery">
         <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 1">
         <img src="https://i.imgur.com/ztr4bVN.jpg" alt="Image 2">
         <img src="https://i.imgur.com/GITF6dI.jpg" alt="Image 3">
@@ -119,6 +144,8 @@
         const modal = document.getElementById('modal');
         const modalImage = document.getElementById('modal-image');
         const galleryImages = document.querySelectorAll('.gallery img');
+        const gallery = document.getElementById('gallery');
+        const headerTitle = document.getElementById('header-title');
 
         galleryImages.forEach(image => {
             image.addEventListener('click', () => {
@@ -138,10 +165,14 @@
             e.preventDefault();
         }, { passive: false });
 
-        // Fade in content after load
+        // Page load typing and fade effect
         window.addEventListener('load', () => {
-            document.body.style.overflow = 'auto';
-            document.body.style.opacity = '1';
+            headerTitle.style.opacity = 1;
+
+            setTimeout(() => {
+                gallery.style.display = 'grid';
+                gallery.classList.add('fade-in');
+            }, 3000); // Delay to match typing animation
         });
     </script>
 </body>
