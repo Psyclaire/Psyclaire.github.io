@@ -78,6 +78,9 @@
             overflow: hidden;
         }
     </style>
+    <!-- Preload critical images -->
+    <link rel="preload" href="https://i.imgur.com/TsvgtoW.jpg" as="image">
+    <link rel="preload" href="https://i.imgur.com/ztr4bVN.jpg" as="image">
 </head>
 <body>
     <header>
@@ -135,8 +138,10 @@
         // Optimize responsiveness on tab switch
         document.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'visible') {
-                // Force reflow to stabilize layout
-                document.body.offsetHeight; // Triggers a reflow without doing anything
+                requestAnimationFrame(() => {
+                    // Minimal DOM update
+                    modal.style.display = modal.style.display; // Reapply current styles
+                });
             }
         });
     </script>
