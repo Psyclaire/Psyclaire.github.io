@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,8 +48,6 @@
             height: auto;
             transition: transform 0.3s ease;
             cursor: pointer;
-            object-fit: cover;
-            border-radius: 5px;
         }
 
         @media (hover: hover) {
@@ -69,61 +68,15 @@
             justify-content: center;
             align-items: center;
             overscroll-behavior: contain;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex;
-            opacity: 1;
-            transform: scale(1);
         }
 
         .modal img {
             max-width: 90%;
             max-height: 90%;
-            transition: transform 0.3s ease;
-        }
-
-        .modal.show img {
-            transform: scale(1);
-        }
-
-        .modal.slide-left img {
-            animation: slideLeft 0.3s ease forwards;
-        }
-
-        .modal.slide-right img {
-            animation: slideRight 0.3s ease forwards;
-        }
-
-        @keyframes slideLeft {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideRight {
-            from {
-                transform: translateX(-100%);
-            }
-            to {
-                transform: translateX(0);
-            }
         }
 
         body.no-scroll {
             overflow: hidden;
-        }
-
-        footer {
-            text-align: left;
-            padding: 20px;
-            color: #FF8200;
         }
     </style>
 </head>
@@ -135,74 +88,53 @@
     </header>
 
     <section class="gallery">
-        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 1" loading="lazy">
-        <img src="https://i.imgur.com/ztr4bVN.jpg" alt="Image 2" loading="lazy">
-        <img src="https://i.imgur.com/GITF6dI.jpg" alt="Image 3" loading="lazy">
-        <img src="https://i.imgur.com/7kfY9Lm.jpg" alt="Image 4" loading="lazy">
-        <img src="https://i.imgur.com/NIQIJE5.jpg" alt="Image 5" loading="lazy">
-        <img src="https://i.imgur.com/hoKBNFN.jpg" alt="Image 6" loading="lazy">
-        <img src="https://i.imgur.com/1NaKomt.jpg" alt="Image 7" loading="lazy">
-        <img src="https://i.imgur.com/YIiaXiu.jpeg" alt="Image 8" loading="lazy">
-        <img src="https://i.imgur.com/HPcQfsz.jpg" alt="Image 9" loading="lazy">
-        <img src="https://i.imgur.com/5GnhDrB.jpg" alt="Image 10" loading="lazy">
-        <img src="https://i.imgur.com/V27Z0gV.jpg" alt="Image 11" loading="lazy">
-        <img src="https://i.ibb.co/rs12w4V/85831-D92-C63-C-4469-A576-7-D1-B23-B08956.jpg" alt="Image 12" loading="lazy">
-        <img src="https://i.ibb.co/BNJ2XDn/60-D34-B98-5-A0-A-428-D-A823-E648-F8-C8933-E.jpg" alt="Image 13" loading="lazy">
-        <img src="https://i.ibb.co/XJ2yDRD/0118-D0-C2-CD6-B-48-FC-84-F1-563-DAB7-D0-EE5.jpg" alt="Image 14" loading="lazy">
-        <img src="https://i.ibb.co/xY92Wm1/71166023-710-A-4982-9-B40-20342-C9849-E4.jpg" alt="Image 15" loading="lazy">
-        <img src="https://i.ibb.co/GH3F26N/IMG-4430.jpg" alt="Image 16" loading="lazy">
-        <img src="https://i.imgur.com/mgSp6u2.jpg" alt="Image 17" loading="lazy">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 1">
+        <img src="https://i.imgur.com/ztr4bVN.jpg" alt="Image 2">
+        <img src="https://i.imgur.com/GITF6dI.jpg" alt="Image 3">
+        <img src="https://i.imgur.com/7kfY9Lm.jpg" alt="Image 4">
+        <img src="https://i.imgur.com/NIQIJE5.jpg" alt="Image 5">
+        <img src="https://i.imgur.com/hoKBNFN.jpg" alt="Image 6">
+        <img src="https://i.imgur.com/1NaKomt.jpg" alt="Image 7">
+        <img src="https://i.imgur.com/YIiaXiu.jpeg" alt="Image 8">
+        <img src="https://i.imgur.com/HPcQfsz.jpg" alt="Image 9">
+        <img src="https://i.imgur.com/5GnhDrB.jpg" alt="Image 10">
+        <img src="https://i.imgur.com/V27Z0gV.jpg" alt="Image 11">
+        <img src="https://i.ibb.co/rs12w4V/85831-D92-C63-C-4469-A576-7-D1-B23-B08956.jpg" alt="Image 12">
+        <img src="https://i.ibb.co/BNJ2XDn/60-D34-B98-5-A0-A-428-D-A823-E648-F8-C8933-E.jpg" alt="Image 13">
+        <img src="https://i.ibb.co/XJ2yDRD/0118-D0-C2-CD6-B-48-FC-84-F1-563-DAB7-D0-EE5.jpg" alt="Image 14">
+        <img src="https://i.ibb.co/xY92Wm1/71166023-710-A-4982-9-B40-20342-C9849-E4.jpg" alt="Image 15">
+        <img src="https://i.ibb.co/GH3F26N/IMG-4430.jpg" alt="Image 16">
+        <img src="https://i.imgur.com/mgSp6u2.jpg" alt="Image 17">
     </section>
 
-    <div class="modal" id="modal" role="dialog" aria-labelledby="modal-image" aria-hidden="true">
+    <div class="modal" id="modal">
         <img id="modal-image" src="" alt="Expanded View">
     </div>
 
-    <footer>thank you for being here</footer>
+    <footer style="text-align: left; padding: 20px; color: #FF8200;">thank you for being here</footer>
 
     <script>
         const modal = document.getElementById('modal');
         const modalImage = document.getElementById('modal-image');
         const galleryImages = document.querySelectorAll('.gallery img');
-        let currentIndex = -1;
 
-        galleryImages.forEach((image, index) => {
+        galleryImages.forEach(image => {
             image.addEventListener('click', () => {
-                const rect = image.getBoundingClientRect();
-                modalImage.style.transition = 'none';
-                modalImage.style.transformOrigin = `${rect.left + rect.width / 2}px ${rect.top + rect.height / 2}px`;
-                modalImage.style.transform = `translate(${rect.left}px, ${rect.top}px) scale(${rect.width / window.innerWidth})`;
-
-                modal.classList.add('show');
+                modal.style.display = 'flex';
                 modalImage.src = image.src;
-
-                setTimeout(() => {
-                    modalImage.style.transition = 'transform 0.3s ease';
-                    modalImage.style.transform = 'translate(0, 0) scale(1)';
-                }, 10);
-
-                currentIndex = index;
-                modal.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('no-scroll');
             });
         });
 
         modal.addEventListener('click', () => {
-            modalImage.style.transition = 'transform 0.3s ease';
-            const rect = galleryImages[currentIndex].getBoundingClientRect();
-            modalImage.style.transform = `translate(${rect.left}px, ${rect.top}px) scale(${rect.width / window.innerWidth})`;
-
-            setTimeout(() => {
-                modal.classList.remove('show');
-                modal.setAttribute('aria-hidden', 'true');
-                document.body.classList.remove('no-scroll');
-            }, 300);
+            modal.style.display = 'none';
+            document.body.classList.remove('no-scroll');
         });
 
-        document.addEventListener('keydown', (event) => {
-            if (modal.classList.contains('show')) {
-                if (event.key === 'ArrowRight') {
-                    modal.classList.remove('slide-left', 'slide-right');
-                    currentIndex = (currentIndex + 1) % galleryImages.length;
-                    modalImage.src = galleryImages[currentIndex].src;
-                    modal.classList.add('slide-right');
+        // Prevent touchmove when modal is active
+        modal.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+</html>
