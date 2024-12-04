@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,16 +18,14 @@
             text-align: left;
         }
 
-        header h1, header p {
-            color: #FF8200;
-        }
-
         header h1 {
+            color: #FF8200;
             font-size: 4em;
             margin: 0;
         }
 
         header p {
+            color: #FF8200;
             font-size: 0.9em;
             margin: 5px 0 0;
         }
@@ -39,6 +39,7 @@
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            justify-content: center;
             gap: 10px;
             padding: 20px;
         }
@@ -50,10 +51,13 @@
             cursor: pointer;
         }
 
-        .gallery img:hover {
-            transform: scale(1.1);
+        @media (hover: hover) {
+            .gallery img:hover {
+                transform: scale(1.1);
+            }
         }
 
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -85,23 +89,23 @@
     </header>
 
     <section class="gallery">
-        <img src="https://i.imgur.com/TsvgtoW.jpg" data-full="https://i.imgur.com/TsvgtoW.jpg" alt="Image 1" loading="lazy">
-        <img src="https://i.imgur.com/ztr4bVN.jpg" data-full="https://i.imgur.com/ztr4bVN.jpg" alt="Image 2" loading="lazy">
-        <img src="https://i.imgur.com/GITF6dI.jpg" data-full="https://i.imgur.com/GITF6dI.jpg" alt="Image 3" loading="lazy">
-        <img src="https://i.imgur.com/7kfY9Lm.jpg" data-full="https://i.imgur.com/7kfY9Lm.jpg" alt="Image 4" loading="lazy">
-        <img src="https://i.imgur.com/NIQIJE5.jpg" data-full="https://i.imgur.com/NIQIJE5.jpg" alt="Image 5" loading="lazy">
-        <img src="https://i.imgur.com/hoKBNFN.jpg" data-full="https://i.imgur.com/hoKBNFN.jpg" alt="Image 6" loading="lazy">
-        <img src="https://i.imgur.com/1NaKomt.jpg" data-full="https://i.imgur.com/1NaKomt.jpg" alt="Image 7" loading="lazy">
-        <img src="https://i.imgur.com/YIiaXiu.jpeg" data-full="https://i.imgur.com/YIiaXiu.jpeg" alt="Image 8" loading="lazy">
-        <img src="https://i.imgur.com/HPcQfsz.jpg" data-full="https://i.imgur.com/HPcQfsz.jpg" alt="Image 9" loading="lazy">
-        <img src="https://i.imgur.com/5GnhDrB.jpg" data-full="https://i.imgur.com/5GnhDrB.jpg" alt="Image 10" loading="lazy">
-        <img src="https://i.imgur.com/V27Z0gV.jpg" data-full="https://i.imgur.com/V27Z0gV.jpg" alt="Image 11" loading="lazy">
-        <img src="https://i.ibb.co/rs12w4V/85831-D92-C63-C-4469-A576-7-D1-B23-B08956.jpg" data-full="https://i.ibb.co/rs12w4V/85831-D92-C63-C-4469-A576-7-D1-B23-B08956.jpg" alt="Image 12" loading="lazy">
-        <img src="https://i.ibb.co/BNJ2XDn/60-D34-B98-5-A0-A-428-D-A823-E648-F8-C8933-E.jpg" data-full="https://i.ibb.co/BNJ2XDn/60-D34-B98-5-A0-A-428-D-A823-E648-F8-C8933-E.jpg" alt="Image 13" loading="lazy">
-        <img src="https://i.ibb.co/XJ2yDRD/0118-D0-C2-CD6-B-48-FC-84-F1-563-DAB7-D0-EE5.jpg" data-full="https://i.ibb.co/XJ2yDRD/0118-D0-C2-CD6-B-48-FC-84-F1-563-DAB7-D0-EE5.jpg" alt="Image 14" loading="lazy">
-        <img src="https://i.ibb.co/xY92Wm1/71166023-710-A-4982-9-B40-20342-C9849-E4.jpg" data-full="https://i.ibb.co/xY92Wm1/71166023-710-A-4982-9-B40-20342-C9849-E4.jpg" alt="Image 15" loading="lazy">
-        <img src="https://i.ibb.co/GH3F26N/IMG-4430.jpg" data-full="https://i.ibb.co/GH3F26N/IMG-4430.jpg" alt="Image 16" loading="lazy">
-        <img src="https://i.imgur.com/mgSp6u2.jpg" data-full="https://i.imgur.com/mgSp6u2.jpg" alt="Image 17" loading="lazy">
+        <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 1">
+        <img src="https://i.imgur.com/ztr4bVN.jpg" alt="Image 2">
+        <img src="https://i.imgur.com/GITF6dI.jpg" alt="Image 3">
+        <img src="https://i.imgur.com/7kfY9Lm.jpg" alt="Image 4">
+        <img src="https://i.imgur.com/NIQIJE5.jpg" alt="Image 5">
+        <img src="https://i.imgur.com/hoKBNFN.jpg" alt="Image 6">
+        <img src="https://i.imgur.com/1NaKomt.jpg" alt="Image 7">
+        <img src="https://i.imgur.com/YIiaXiu.jpeg" alt="Image 8">
+        <img src="https://i.imgur.com/HPcQfsz.jpg" alt="Image 9">
+        <img src="https://i.imgur.com/5GnhDrB.jpg" alt="Image 10">
+        <img src="https://i.imgur.com/V27Z0gV.jpg" alt="Image 11">
+        <img src="https://i.ibb.co/rs12w4V/85831-D92-C63-C-4469-A576-7-D1-B23-B08956.jpg" alt="Image 12">
+        <img src="https://i.ibb.co/BNJ2XDn/60-D34-B98-5-A0-A-428-D-A823-E648-F8-C8933-E.jpg" alt="Image 13">
+        <img src="https://i.ibb.co/XJ2yDRD/0118-D0-C2-CD6-B-48-FC-84-F1-563-DAB7-D0-EE5.jpg" alt="Image 14">
+        <img src="https://i.ibb.co/xY92Wm1/71166023-710-A-4982-9-B40-20342-C9849-E4.jpg" alt="Image 15">
+        <img src="https://i.ibb.co/GH3F26N/IMG-4430.jpg" alt="Image 16">
+        <img src="https://i.imgur.com/mgSp6u2.jpg" alt="Image 17">
     </section>
 
     <div class="modal" id="modal">
@@ -113,13 +117,14 @@
     <script>
         const modal = document.getElementById('modal');
         const modalImage = document.getElementById('modal-image');
+        const galleryImages = document.querySelectorAll('.gallery img');
 
-        document.querySelector('.gallery').addEventListener('click', (e) => {
-            if (e.target.tagName === 'IMG') {
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
                 modal.style.display = 'flex';
-                modalImage.src = e.target.getAttribute('data-full');
+                modalImage.src = image.src;
                 document.body.classList.add('no-scroll');
-            }
+            });
         });
 
         modal.addEventListener('click', () => {
@@ -127,7 +132,10 @@
             document.body.classList.remove('no-scroll');
         });
 
-        modal.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+        // Prevent touchmove when modal is active
+        modal.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        }, { passive: false });
     </script>
 </body>
 </html>
