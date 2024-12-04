@@ -69,11 +69,24 @@
             justify-content: center;
             align-items: center;
             overscroll-behavior: contain;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .modal img {
             max-width: 90%;
             max-height: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal.show img {
+            transform: scale(1);
         }
 
         /* Disable scrolling when modal is active */
@@ -134,14 +147,14 @@
 
         galleryImages.forEach(image => {
             image.addEventListener('click', () => {
-                modal.style.display = 'flex';
                 modalImage.src = image.src;
+                modal.classList.add('show');
                 document.body.classList.add('no-scroll');
             });
         });
 
         modal.addEventListener('click', () => {
-            modal.style.display = 'none';
+            modal.classList.remove('show');
             document.body.classList.remove('no-scroll');
         });
 
