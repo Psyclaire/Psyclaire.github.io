@@ -168,8 +168,19 @@
 
         galleryImages.forEach((image, index) => {
             image.addEventListener('click', () => {
+                const rect = image.getBoundingClientRect();
+                modalImage.style.transition = 'none';
+                modalImage.style.transformOrigin = `${rect.left + rect.width / 2}px ${rect.top + rect.height / 2}px`;
+                modalImage.style.transform = `translate(${rect.left}px, ${rect.top}px) scale(${rect.width / window.innerWidth})`;
+
                 modal.classList.add('show');
                 modalImage.src = image.src;
+
+                setTimeout(() => {
+                    modalImage.style.transition = 'transform 0.3s ease';
+                    modalImage.style.transform = 'translate(0, 0) scale(1)';
+                }, 10);
+
                 currentIndex = index;
                 modal.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('no-scroll');
@@ -177,9 +188,15 @@
         });
 
         modal.addEventListener('click', () => {
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('no-scroll');
+            modalImage.style.transition = 'transform 0.3s ease';
+            const rect = galleryImages[currentIndex].getBoundingClientRect();
+            modalImage.style.transform = `translate(${rect.left}px, ${rect.top}px) scale(${rect.width / window.innerWidth})`;
+
+            setTimeout(() => {
+                modal.classList.remove('show');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('no-scroll');
+            }, 300);
         });
 
         document.addEventListener('keydown', (event) => {
@@ -189,18 +206,3 @@
                     currentIndex = (currentIndex + 1) % galleryImages.length;
                     modalImage.src = galleryImages[currentIndex].src;
                     modal.classList.add('slide-right');
-                } else if (event.key === 'ArrowLeft') {
-                    modal.classList.remove('slide-left', 'slide-right');
-                    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-                    modalImage.src = galleryImages[currentIndex].src;
-                    modal.classList.add('slide-left');
-                } else if (event.key === 'Escape') {
-                    modal.classList.remove('show');
-                    modal.setAttribute('aria-hidden', 'true');
-                    document.body.classList.remove('no-scroll');
-                }
-            }
-        });
-    </script>
-</body>
-</html>
