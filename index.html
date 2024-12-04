@@ -69,17 +69,25 @@
             justify-content: center;
             align-items: center;
             overscroll-behavior: contain;
-            transition: opacity 0.3s ease;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .modal.show {
             display: flex;
             opacity: 1;
+            transform: scale(1);
         }
 
         .modal img {
             max-width: 90%;
             max-height: 90%;
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show img {
+            transform: scale(1);
         }
 
         body.no-scroll {
@@ -134,7 +142,6 @@
 
         galleryImages.forEach((image, index) => {
             image.addEventListener('click', () => {
-                modal.style.display = 'flex';
                 modal.classList.add('show');
                 modalImage.src = image.src;
                 currentIndex = index;
@@ -144,14 +151,13 @@
         });
 
         modal.addEventListener('click', () => {
-            modal.style.display = 'none';
             modal.classList.remove('show');
             modal.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('no-scroll');
         });
 
         document.addEventListener('keydown', (event) => {
-            if (modal.style.display === 'flex') {
+            if (modal.classList.contains('show')) {
                 if (event.key === 'ArrowRight') {
                     currentIndex = (currentIndex + 1) % galleryImages.length;
                     modalImage.src = galleryImages[currentIndex].src;
@@ -159,7 +165,6 @@
                     currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
                     modalImage.src = galleryImages[currentIndex].src;
                 } else if (event.key === 'Escape') {
-                    modal.style.display = 'none';
                     modal.classList.remove('show');
                     modal.setAttribute('aria-hidden', 'true');
                     document.body.classList.remove('no-scroll');
