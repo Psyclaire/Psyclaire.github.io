@@ -1,38 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>photos from my eyeballs</title>
+    <title>Photos from My Eyeballs</title>
     <style>
+        :root {
+            --primary-color: #FF8200;
+            --background-color: #121212;
+            --text-color: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+        }
+
         header {
             padding: 20px;
             text-align: left;
         }
 
         header h1 {
-            color: #FF8200;
+            color: var(--primary-color);
             font-size: 4em;
             margin: 0;
         }
 
         header p {
-            color: #FF8200;
+            color: var(--primary-color);
             font-size: 0.9em;
             margin: 5px 0 0;
         }
 
         hr {
             border: none;
-            border-top: 1px solid #FF8200;
+            border-top: 1px solid var(--primary-color);
             margin: 20px 0;
         }
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            justify-content: center;
             gap: 10px;
             padding: 20px;
         }
@@ -50,7 +61,6 @@
             }
         }
 
-        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -72,11 +82,17 @@
         body.no-scroll {
             overflow: hidden;
         }
+
+        footer {
+            text-align: left;
+            padding: 20px;
+            color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>photos from my eyeballs</h1>
+        <h1>Photos from My Eyeballs</h1>
         <p>e. 2023</p>
         <hr>
     </header>
@@ -105,19 +121,19 @@
         <img id="modal-image" src="" alt="Expanded View">
     </div>
 
-    <footer style="text-align: left; padding: 20px; color: #FF8200;">thank you for being here</footer>
+    <footer>Thank you for being here</footer>
 
     <script>
         const modal = document.getElementById('modal');
         const modalImage = document.getElementById('modal-image');
-        const galleryImages = document.querySelectorAll('.gallery img');
+        const gallery = document.querySelector('.gallery');
 
-        galleryImages.forEach(image => {
-            image.addEventListener('click', () => {
+        gallery.addEventListener('click', (event) => {
+            if (event.target.tagName === 'IMG') {
                 modal.style.display = 'flex';
-                modalImage.src = image.src;
+                modalImage.src = event.target.src;
                 document.body.classList.add('no-scroll');
-            });
+            }
         });
 
         modal.addEventListener('click', () => {
@@ -125,7 +141,6 @@
             document.body.classList.remove('no-scroll');
         });
 
-        // Prevent touchmove when modal is active
         modal.addEventListener('touchmove', (e) => {
             e.preventDefault();
         }, { passive: false });
