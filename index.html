@@ -1,21 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photos from My Eyeballs</title>
+    <title>photos from my eyeballs</title>
     <style>
-        :root {
-            --primary-color: #FF8200;
-            --background-color: #121212;
-            --text-color: #FFFFFF;
-        }
-
+        html {
+    color: #FF8200; /* Set the fallback font color */
+}
         body {
             margin: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
         }
 
         header {
@@ -24,25 +21,27 @@
         }
 
         header h1 {
+            color: #FF8200;
             font-size: 4em;
             margin: 0;
         }
 
         header p {
-            color: var(--primary-color);
+            color: #FF8200;
             font-size: 0.9em;
             margin: 5px 0 0;
         }
 
         hr {
             border: none;
-            border-top: 1px solid var(--primary-color);
+            border-top: 1px solid #FF8200;
             margin: 20px 0;
         }
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            justify-content: center;
             gap: 10px;
             padding: 20px;
         }
@@ -60,6 +59,7 @@
             }
         }
 
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -81,17 +81,11 @@
         body.no-scroll {
             overflow: hidden;
         }
-
-        footer {
-            text-align: left;
-            padding: 20px;
-            color: var(--primary-color);
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1 style="color: #FF8200;">Photos from My Eyeballs</h1>
+        <h1>photos from my eyeballs</h1>
         <p>e. 2023</p>
         <hr>
     </header>
@@ -120,19 +114,19 @@
         <img id="modal-image" src="" alt="Expanded View">
     </div>
 
-    <footer>Thank you for being here</footer>
+    <footer style="text-align: left; padding: 20px; color: #FF8200;">thank you for being here</footer>
 
     <script>
         const modal = document.getElementById('modal');
         const modalImage = document.getElementById('modal-image');
-        const gallery = document.querySelector('.gallery');
+        const galleryImages = document.querySelectorAll('.gallery img');
 
-        gallery.addEventListener('click', (event) => {
-            if (event.target.tagName === 'IMG') {
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
                 modal.style.display = 'flex';
-                modalImage.src = event.target.src;
+                modalImage.src = image.src;
                 document.body.classList.add('no-scroll');
-            }
+            });
         });
 
         modal.addEventListener('click', () => {
@@ -140,6 +134,7 @@
             document.body.classList.remove('no-scroll');
         });
 
+        // Prevent touchmove when modal is active
         modal.addEventListener('touchmove', (e) => {
             e.preventDefault();
         }, { passive: false });
