@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,9 +112,15 @@
     const modalImage = document.getElementById('modal-image');
     const galleryImages = [...document.querySelectorAll('.gallery img')];
     let currentIndex = -1;
+    let isTabActive = true;
+
+    document.addEventListener('visibilitychange', () => {
+      isTabActive = !document.hidden;
+    });
 
     galleryImages.forEach((img, i) =>
       img.addEventListener('click', () => {
+        if (!isTabActive) return;
         modal.style.display = 'flex';
         modalImage.src = img.src;
         currentIndex = i;
@@ -127,7 +132,7 @@
     modal.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
 
     document.addEventListener('keydown', e => {
-      if (modal.style.display !== 'flex') return;
+      if (modal.style.display !== 'flex' || !isTabActive) return;
 
       if (e.key === 'ArrowRight') {
         currentIndex = (currentIndex + 1) % galleryImages.length;
@@ -143,11 +148,13 @@
     function transitionImage(newSrc, direction) {
       modalImage.style.opacity = '0';
       modalImage.style.transform = direction === 'right' ? 'translateX(-50px)' : 'translateX(50px)';
-      setTimeout(() => {
-        modalImage.src = newSrc;
-        modalImage.style.transform = 'translateX(0)';
-        modalImage.style.opacity = '1';
-      }, 150);
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          modalImage.src = newSrc;
+          modalImage.style.transform = 'translateX(0)';
+          modalImage.style.opacity = '1';
+        }, 100);
+      });
     }
 
     function lockBodyScroll() {
