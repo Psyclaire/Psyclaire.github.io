@@ -55,7 +55,6 @@
             }
         }
 
-        /* Modal styles */
         .modal {
             position: fixed;
             top: 0;
@@ -86,6 +85,8 @@
 
         body.no-scroll {
             overflow: hidden;
+            position: fixed;
+            width: 100%;
         }
     </style>
 </head>
@@ -135,6 +136,8 @@
                 modal.classList.add('active');
                 modalImage.src = image.src;
                 currentIndex = index;
+                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+                document.body.style.paddingRight = scrollbarWidth + 'px';
                 document.body.classList.add('no-scroll');
             });
         });
@@ -144,6 +147,7 @@
             modalImage.src = '';
             currentIndex = -1;
             document.body.classList.remove('no-scroll');
+            document.body.style.paddingRight = '';
         });
 
         modal.addEventListener('touchmove', (e) => {
@@ -164,6 +168,7 @@
                 modalImage.src = '';
                 currentIndex = -1;
                 document.body.classList.remove('no-scroll');
+                document.body.style.paddingRight = '';
             }
         });
 
