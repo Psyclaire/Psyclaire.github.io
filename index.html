@@ -160,8 +160,8 @@
 
         function transitionImage(newSrc, direction) {
             modalImage.style.opacity = '0';
-            modalImage.style.transform = direction === 'right' ? 'translateX(50px)' : 'translateX(-50px)';
-            
+            modalImage.style.transform = direction === 'right' ? 'translateX(-50px)' : 'translateX(50px)';
+
             setTimeout(() => {
                 modalImage.src = newSrc;
                 modalImage.style.transform = 'translateX(0)';
