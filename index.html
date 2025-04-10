@@ -57,7 +57,6 @@
 
         /* Modal styles */
         .modal {
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -67,6 +66,16 @@
             justify-content: center;
             align-items: center;
             overscroll-behavior: contain;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
 
         .modal img {
@@ -123,7 +132,7 @@
 
         galleryImages.forEach((image, index) => {
             image.addEventListener('click', () => {
-                modal.style.display = 'flex';
+                modal.classList.add('active');
                 modalImage.src = image.src;
                 currentIndex = index;
                 document.body.classList.add('no-scroll');
@@ -131,7 +140,7 @@
         });
 
         modal.addEventListener('click', () => {
-            modal.style.display = 'none';
+            modal.classList.remove('active');
             modalImage.src = '';
             currentIndex = -1;
             document.body.classList.remove('no-scroll');
@@ -142,7 +151,7 @@
         }, { passive: false });
 
         document.addEventListener('keydown', (e) => {
-            if (modal.style.display !== 'flex') return;
+            if (!modal.classList.contains('active')) return;
 
             if (e.key === 'ArrowRight') {
                 currentIndex = (currentIndex + 1) % galleryImages.length;
@@ -151,7 +160,7 @@
                 currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
                 transitionImage(galleryImages[currentIndex].src, 'left');
             } else if (e.key === 'Escape') {
-                modal.style.display = 'none';
+                modal.classList.remove('active');
                 modalImage.src = '';
                 currentIndex = -1;
                 document.body.classList.remove('no-scroll');
