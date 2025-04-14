@@ -46,12 +46,19 @@
       height: auto;
       transition: transform 0.3s ease;
       cursor: pointer;
+      display: block;
     }
 
     @media (hover: hover) {
       .gallery img:hover {
         transform: scale(1.1);
       }
+    }
+
+    .landscape-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .modal {
@@ -81,7 +88,7 @@
     <hr>
   </header>
 
-  <section class="gallery">
+  <section class="gallery" id="gallery">
     <img src="https://i.imgur.com/TsvgtoW.jpg" alt="Image 1" loading="lazy">
     <img src="https://i.imgur.com/ztr4bVN.jpg" alt="Image 2" loading="lazy">
     <img src="https://i.imgur.com/GITF6dI.jpg" alt="Image 3" loading="lazy">
@@ -115,10 +122,11 @@
   <script>
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modal-image');
-    const galleryImages = [...document.querySelectorAll('.gallery img')];
+    const gallery = document.getElementById('gallery');
+    const images = [...gallery.querySelectorAll('img')];
     let currentIndex = -1;
 
-    galleryImages.forEach((img, i) =>
+    images.forEach((img, i) =>
       img.addEventListener('click', () => {
         modal.style.display = 'flex';
         modalImage.src = img.src;
@@ -134,11 +142,11 @@
       if (modal.style.display !== 'flex') return;
 
       if (e.key === 'ArrowRight') {
-        currentIndex = (currentIndex + 1) % galleryImages.length;
-        transitionImage(galleryImages[currentIndex].src, 'right');
+        currentIndex = (currentIndex + 1) % images.length;
+        transitionImage(images[currentIndex].src, 'right');
       } else if (e.key === 'ArrowLeft') {
-        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-        transitionImage(galleryImages[currentIndex].src, 'left');
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        transitionImage(images[currentIndex].src, 'left');
       } else if (e.key === 'Escape') {
         closeModal();
       }
@@ -171,6 +179,28 @@
       currentIndex = -1;
       unlockBodyScroll();
     }
+
+    // === STACK LANDSCAPE IMAGES IN PAIRS ===
+    window.addEventListener('load', () => {
+      const landscapeBuffer = [];
+      images.forEach(img => {
+        const temp = new Image();
+        temp.src = img.src;
+        temp.onload = () => {
+          if (temp.width > temp.height) {
+            landscapeBuffer.push(img);
+            if (landscapeBuffer.length === 2) {
+              const wrapper = document.createElement('div');
+              wrapper.className = 'landscape-pair';
+              wrapper.appendChild(landscapeBuffer[0]);
+              wrapper.appendChild(landscapeBuffer[1]);
+              gallery.appendChild(wrapper);
+              landscapeBuffer.length = 0;
+            }
+          }
+        };
+      });
+    });
   </script>
 </body>
 </html>
